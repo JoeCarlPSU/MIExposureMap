@@ -1,0 +1,8 @@
+.map-container {
+    height: calc(100vh - 56px);
+    background-color: darkgrey;
+}
+
+#map {
+    height: 100%;
+}
