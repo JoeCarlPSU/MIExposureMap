@@ -13,6 +13,7 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
 
+
     <!-- Easy Button -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
 
@@ -36,6 +37,51 @@
             <div id="map">
 
             </div>
+            <div class="date">
+                <h5 class="mt-4">Confirmed Cases</h5>
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">County</th>
+                            <th scope="col">Cases</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ingham</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Kent</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Montcalm</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Oakland</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>St. Clair</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Washtenaw</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Wayne</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Unknown</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -46,8 +92,35 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script src="exposuresJSON.js"></script>
+    <script src="countycases.js"></script>
 
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.3.3/dist/esri-leaflet.js" integrity="sha512-cMQ5e58BDuu1pr9BQ/eGRn6HaR6Olh0ofcHFWe5XesdCITVuSBiBZZbhCijBe5ya238f/zMMRYIMIIg1jxv4sQ==" crossorigin=""></script>
+
+    <!-- Load Leaflet Label from GitHub -->
+    <script src="https://leaflet.github.io/Leaflet.label/leaflet.label.js"></script>
+
+    <!-- Include Leaflet.heat from CDN -->
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+
+    <!-- Load Heatmap Feature Layer from CDN -->
+    <script src="https://cdn.jsdelivr.net/leaflet.esri.heatmap-feature-layer/2.0.0-beta.1/esri-leaflet-heatmap-feature-layer.js"></script>
+
+    <!-- Load Esri Leaflet Renderers from CDN -->
+    <script src="https://cdn.jsdelivr.net/leaflet.esri.renderers/2.0.2/esri-leaflet-renderers.js"></script>
+
+    <!-- Load Vector Icon from GitHub -->
+    <script src="https://muxlab.github.io/Leaflet.VectorIcon/L.VectorIcon.js"></script>
+
+    <!-- Load Leaflet Omnivore -->
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+
+    <!-- Load L.esri.WebMap -->
+    <script src="https://cdn.jsdelivr.net/leaflet.esri.webmap/0.4.0/esri-leaflet-webmap.js"></script>
+
+
     <!-- Leaflet Easy Button -->
     <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-pulse-icon@0.1.0/src/L.Icon.Pulse.js"></script>

@@ -1,7 +1,8 @@
 html,
 body {
     height: 100%;
-    width: 100%
+    width: 100%;
+    overflow: hidden;
 }
 
 .map-container {
@@ -11,4 +12,23 @@ body {
 
 #map {
     height: 100%;
+}
+
+.date {
+    z-index: 1001;
+    position: absolute;
+    width: 450px;
+    height: 100%;
+    background-color: #343a40;
+    color: white;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    opacity: 0.75;
+}
+
+@media only screen and (max-width: 900px) {
+    .date {
+        display: none;
+    }
 }
