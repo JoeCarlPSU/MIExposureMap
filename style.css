@@ -25,6 +25,25 @@ body {
     left: 0px;
     text-align: center;
     opacity: 0.75;
+    overflow: auto;
+}
+
+.nano {
+    background: #343a40;
+    width: 500px;
+    height: 500px;
+}
+
+.nano .nano-content {
+    padding: 10px;
+}
+
+.nano .nano-pane {
+    background: #888;
+}
+
+.nano .nano-slider {
+    background: #007bff !important;
 }
 
 @media only screen and (max-width: 900px) {

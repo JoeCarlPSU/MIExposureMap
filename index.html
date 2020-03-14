@@ -23,6 +23,9 @@
     <!-- Style CSS -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Load Nano Scroller from CDN-->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/css/nanoscroller.min.css'>
+
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>MI COVID-19 Exposure Locations</title>
@@ -30,7 +33,7 @@
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1">Michigan COVID-19 Exposure Sites</span>
+        <span class="navbar-brand mb-0 h1 mx-auto">Michigan COVID-19 Exposure Sites</span>
     </nav>
     <div class="container-fluid map-container p-0">
         <div class="col h-100 p-0">
@@ -38,56 +41,41 @@
 
             </div>
             <div class="date">
-                <h5 class="mt-4">Confirmed Cases</h5>
-                <table class="table table-dark">
-                    <thead>
-                        <tr>
-                            <th scope="col">County</th>
-                            <th scope="col">Cases</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Ingham</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Kent</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>Montcalm</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Oakland</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>St. Clair</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Washtenaw</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>Wayne</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>Unknown</td>
-                            <td>2</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div id="about" class="nano">
+                    <div class="nano-content">
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">.<a href="https://twitter.com/MichiganHHS?ref_src=twsrc%5Etfw">@MichiganHHS</a> announced today nine (9) adults tested presumptive positive for coronavirus disease 2019 (COVID-19). This brings the state total of <a href="https://twitter.com/hashtag/COVID19?src=hash&amp;ref_src=twsrc%5Etfw">#COVID19</a>                                cases to 25. This is a rapidly evolving situation. Read more at <a href="https://t.co/yUkzUlh0So">https://t.co/yUkzUlh0So</a> &amp; at <a href="https://t.co/niRBexCYOy">https://t.co/niRBexCYOy</a>. <a href="https://t.co/Fqf2v7IM2r">pic.twitter.com/Fqf2v7IM2r</a></p>&mdash;
+                            Michigan.gov (@migov) <a href="https://twitter.com/migov/status/1238630840881549313?ref_src=twsrc%5Etfw">March 14, 2020</a></blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <h5 class="mt-4">Confirmed Cases</h5>
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">County</th>
+                                    <th scope="col">Cases</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+
+    <!-- <div id="about" class="nano">
+        <div class="nano-content"> ... content here ...  </div>
+    </div> -->
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--Nano Scroll Bar JQUERY Plugin-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/javascripts/jquery.nanoscroller.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
@@ -99,32 +87,11 @@
     <!-- Load Esri Leaflet from CDN -->
     <script src="https://unpkg.com/esri-leaflet@2.3.3/dist/esri-leaflet.js" integrity="sha512-cMQ5e58BDuu1pr9BQ/eGRn6HaR6Olh0ofcHFWe5XesdCITVuSBiBZZbhCijBe5ya238f/zMMRYIMIIg1jxv4sQ==" crossorigin=""></script>
 
-    <!-- Load Leaflet Label from GitHub -->
-    <script src="https://leaflet.github.io/Leaflet.label/leaflet.label.js"></script>
-
-    <!-- Include Leaflet.heat from CDN -->
-    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
-
-    <!-- Load Heatmap Feature Layer from CDN -->
-    <script src="https://cdn.jsdelivr.net/leaflet.esri.heatmap-feature-layer/2.0.0-beta.1/esri-leaflet-heatmap-feature-layer.js"></script>
-
-    <!-- Load Esri Leaflet Renderers from CDN -->
-    <script src="https://cdn.jsdelivr.net/leaflet.esri.renderers/2.0.2/esri-leaflet-renderers.js"></script>
-
-    <!-- Load Vector Icon from GitHub -->
-    <script src="https://muxlab.github.io/Leaflet.VectorIcon/L.VectorIcon.js"></script>
-
-    <!-- Load Leaflet Omnivore -->
-    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
-
-    <!-- Load L.esri.WebMap -->
-    <script src="https://cdn.jsdelivr.net/leaflet.esri.webmap/0.4.0/esri-leaflet-webmap.js"></script>
-
-
     <!-- Leaflet Easy Button -->
     <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-pulse-icon@0.1.0/src/L.Icon.Pulse.js"></script>
     <script src="js.js"></script>
+
 </body>
 
 </html>
